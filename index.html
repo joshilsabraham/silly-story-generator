@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Silly Story Generator</title>
+  <style>
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    
+
+ 
+    .container {
+      padding: 60px 20px;
+      text-align: center;
+      color: #000000;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #6cb92d;
+      margin-bottom: 20px;
+    }
+
+    input, button {
+      padding: 10px 15px;
+      font-size: 1rem;
+      margin: 10px;
+      border: 2px solid #6cb92d;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    input {
+      width: 200px;
+    }
+
+    button {
+      background-color: #6cb92d;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #449203;
+      transition: ease-in;
+    }
+
+    .story {
+      margin-top: 30px;
+      background-color: #d6ffb5;
+      padding: 20px;
+      max-width: 600px;
+      border-radius: 12px;
+      font-size: 1.2rem;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 4px 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .character {
+      width: 200px;
+      margin: 20px auto;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Silly Story Generator</h1>
+    <input type="text" id="nameInput" placeholder="Enter your name here" />
+    <button onclick="generateStory()">Generate Story</button>
+
+
+
+    <div class="story" id="storyBox">Story will be shown here</div>
+  </div>
+  <h4 style="text-align:center;">By Joshil S Abraham</h4>
+
+  <script>
+   const stories = [
+  "{name} accidentally invented a time machine out of pizza boxes and glitter glue.",
+  "A superhero sloth taught {name} how to fly using bubble wrap wings.",
+  "{name} got stuck inside a giant marshmallow and had to eat their way out.",
+  "A robot named Pickle tried to copy {name}'s homework but exploded from confusion.",
+  "{name} discovered that their pet hamster was secretly a famous DJ.",
+  "One morning, {name} found their shoes doing the cha-cha by themselves.",
+  "{name} was chosen by a group of gnomes to lead a quest for the legendary golden waffle.",
+  "At lunch, {name} traded a sandwich for a magic crayon that drew living dinosaurs.",
+  "{name} joined a rock band made entirely of singing cupcakes.",
+  "During gym class, {name} accidentally turned invisible and won every game of tag."
+];
+
+
+    function generateStory() {
+      const name = document.getElementById("nameInput").value.trim() || "Someone";
+      const randomIndex = Math.floor(Math.random() * stories.length);
+      const storyText = stories[randomIndex].replace("{name}", name);
+      document.getElementById("storyBox").innerHTML = `${storyText}`;
+    }
+  </script>
+</body>
+</html>
